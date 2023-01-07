@@ -1,0 +1,22 @@
+.cart {
+    width: 200px;
+}
+
+.cart-button {
+    display: flex;
+    
+}
+
+#quantity {
+    margin-right: 10px;
+    border-radius: 0;
+}
+
+.add-to-cart {
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #00782E;
+    color: #fff;
+    width: 150px;
+}
