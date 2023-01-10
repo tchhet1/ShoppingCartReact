@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/navbar';
-import CartItems from './components/cart-items';
+import CartItems from './components/add-to-cart';
+import { useState } from 'react';
+
+
 
 function App() {
   const cartItems = [
@@ -32,17 +35,21 @@ function App() {
         "price": "40.00"
 
     }
-]
+];
 
-
+let [totalQty, setTotalQty] = useState(0);
 
   return (
 
     <div className="App">
 
-      <Navbar />
+      <Navbar 
+        totalQty = { totalQty }
+      />
       <div className='cart-container'>
         {
+          
+
           cartItems.map(item => {
 
             return (
@@ -50,7 +57,9 @@ function App() {
               <CartItems 
                 name = { item.name }
                 price = {item.price}
+                setTotalQty = { setTotalQty }
               />
+              
             )
 
             

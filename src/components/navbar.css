@@ -16,9 +16,34 @@ nav {
     align-self: center;
 }
 
+.shopping-cart {
+    position: relative;
+}
 .shopping-cart button {
     border: none;
     font-size: 30px;
     background-color: transparent;
     color: #fff;
+    
+}
+
+.shopping-cart-qty {
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    background-color: #c00;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    align-items: center; 
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    justify-content: center;
+    letter-spacing: 0;
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px 2px 0px 2px;
 }

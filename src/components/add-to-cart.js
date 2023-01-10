@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import './cart-items.css';
+import './add-to-cart.css';
 
-
-let totalQuantity = 0;
+let total = 0
 
 function CartItems(props) {
 
     const [qtyData, setQtyData] = useState(1);
-    const [totalQty, setTotalQty] = useState();
     
 
     const handleQtySelection = (e) => {
@@ -16,10 +14,9 @@ function CartItems(props) {
 
 
     const addToCart = () => {
-        console.log(qtyData);
-       // setTotalQty()
-       totalQuantity = totalQuantity + parseInt(qtyData);
-       console.log(totalQuantity);
+ 
+       total = total + parseInt(qtyData);
+       props.setTotalQty(total);
     }
 
     
