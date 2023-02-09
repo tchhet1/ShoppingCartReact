@@ -4,3 +4,14 @@
   width: 90%;
   margin: auto;
 }
+
+.mycart{
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  right: 0;
+  width: 300px;
+  background-color: #282A35;
+  overflow-y: scroll;
+  /* height: 500px; */
+}

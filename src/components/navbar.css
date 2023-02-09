@@ -16,10 +16,10 @@ nav {
     align-self: center;
 }
 
-.shopping-cart {
+.shopping-cart-button {
     position: relative;
 }
-.shopping-cart button {
+.shopping-cart-button button {
     border: none;
     font-size: 30px;
     background-color: transparent;

@@ -3,7 +3,12 @@ import './navbar.css';
 
 
 
-function Navbar(props) {
+function Navbar({showCart, setShowCart, totalQty}) {
+
+const cartItemHandler = () => {
+    setShowCart(!showCart);
+}
+
     return (
         <nav>
             <div className="navbar">
@@ -11,13 +16,13 @@ function Navbar(props) {
                     Shopping Cart React
                 </div>
 
-                <div className="shopping-cart" >
-                    <button>
+                <div className="shopping-cart-button" >
+                    <button onClick = { cartItemHandler}>
                         <FaShoppingBag/>
                     </button>
-                    { (props.totalQty > 0) && 
+                    { (totalQty > 0) && 
                         <div className='shopping-cart-qty'>                       
-                            { props.totalQty }
+                            { totalQty }
                         </div>
                     }
                 </div>

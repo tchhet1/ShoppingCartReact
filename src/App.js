@@ -3,10 +3,12 @@ import './App.css';
 import Navbar from './components/navbar';
 import CartItems from './components/add-to-cart';
 import { useState } from 'react';
+import ShoppingCart from './components/shoppingcart';
 
 
 
 function App() {
+
   const cartItems = [
     {
         "id": 1,
@@ -39,13 +41,44 @@ function App() {
 
 let [totalQty, setTotalQty] = useState(0);
 
+const [shoppingCartItems, setShoppingCartItems] = useState([]);
+
+const [showCart, setShowCart] = useState(true);
+
+
+
   return (
 
     <div className="App">
-
+       
+  
       <Navbar 
         totalQty = { totalQty }
+        showCart = { showCart }
+        setShowCart = { setShowCart }
       />
+
+    {
+      !showCart && <div className='mycart'>
+      {
+        shoppingCartItems.map(cartitem => {
+          return (
+            <ShoppingCart 
+              name = {cartitem.itemName}
+              quantity = {cartitem.itemQuantity}
+              price = {cartitem.itemPrice}
+
+            />
+          )
+          
+        })
+        
+        }
+      </div>
+    }
+       
+      
+
       <div className='cart-container'>
         {
           
@@ -54,10 +87,14 @@ let [totalQty, setTotalQty] = useState(0);
 
             return (
 
-              <CartItems 
+              <CartItems
+                key = { item.id}
                 name = { item.name }
                 price = {item.price}
-                setTotalQty = { setTotalQty }
+                setTotalQty = {setTotalQty}
+                shoppingCartItems = { shoppingCartItems }
+                setShoppingCartItems = { setShoppingCartItems }
+                
               />
               
             )

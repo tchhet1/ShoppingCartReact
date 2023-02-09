@@ -1,0 +1,11 @@
+.cart-content {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    
+    
+    color: white;
+    padding: 20px;
+   
+}
+

@@ -1,25 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './add-to-cart.css';
 
 let total = 0
 
-function CartItems(props) {
+function CartItems( { name, price, setTotalQty, shoppingCartItems, setShoppingCartItems } ) {
 
     const [qtyData, setQtyData] = useState(1);
     
+    const [cartData, setCartData] = useState({
+        
+        itemName: '',
+        itemPrice: '',
+        itemQuantity: ''
+    });
 
-    const handleQtySelection = (e) => {
-        setQtyData(e.target.value);
-    }
-
-
-    const addToCart = () => {
- 
-       total = total + parseInt(qtyData);
-       props.setTotalQty(total);
-    }
-
+    const addToCart =  function(){
     
+       total = total + parseInt(qtyData);
+       setTotalQty(total);
+       
+
+         setCartData(() => ({
+
+            itemName: name,
+            itemPrice: price,
+            itemQuantity: qtyData 
+        })
+        )
+
+       
+        setShoppingCartItems([...shoppingCartItems, cartData]);
+
+        console.log(shoppingCartItems);
+
+        
+        console.log(cartData);
+
+    }    
 
     return (
         <div className="cart">
@@ -27,21 +44,21 @@ function CartItems(props) {
 
             </div>
             <div className='product-title'>
-                { props.name }
+                { name }
             </div>
             <div className='product-price'>
-                { props.price }
+                { price }
             </div>
 
             <div className='cart-button'>
-                <select id="quantity" name="quantity" onChange={ handleQtySelection }>
+                <select id="quantity" name="quantity" onChange={ (e) =>  setQtyData(e.target.value) }>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button className='add-to-cart' onClick={ addToCart }>Add To Cart</button>
+                <button className='add-to-cart' onClick = { () => addToCart(name, price) }>Add To Cart</button>
             </div>
         </div>
     )
